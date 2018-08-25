@@ -260,7 +260,7 @@ const (
 // available in the memory directly following the rtype value.
 //
 // tflag values must be kept in sync with copies in:
-//	cmd/compile/internal/gc/reflect.go
+//	cmd/compile/i/gc/reflect.go
 //	cmd/link/internal/ld/decodesym.go
 //	runtime/type.go
 type tflag uint8
@@ -2801,7 +2801,7 @@ func runtimeStructField(field StructField) structField {
 
 // typeptrdata returns the length in bytes of the prefix of t
 // containing pointer data. Anything after this offset is scalar data.
-// keep in sync with ../cmd/compile/internal/gc/reflect.go
+// keep in sync with ../cmd/compile/i/gc/reflect.go
 func typeptrdata(t *rtype) uintptr {
 	if !t.pointers() {
 		return 0
@@ -2825,7 +2825,7 @@ func typeptrdata(t *rtype) uintptr {
 	}
 }
 
-// See cmd/compile/internal/gc/reflect.go for derivation of constant.
+// See cmd/compile/i/gc/reflect.go for derivation of constant.
 const maxPtrmaskBytes = 2048
 
 // ArrayOf returns the array type with the given count and element type.

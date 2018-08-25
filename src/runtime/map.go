@@ -72,7 +72,7 @@ const (
 	// Maximum key or value size to keep inline (instead of mallocing per element).
 	// Must fit in a uint8.
 	// Fast versions cannot handle big values - the cutoff size for
-	// fast versions in cmd/compile/internal/gc/walk.go must be at most this value.
+	// fast versions in cmd/compile/i/gc/walk.go must be at most this value.
 	maxKeySize   = 128
 	maxValueSize = 128
 
@@ -106,7 +106,7 @@ const (
 
 // A header for a Go map.
 type hmap struct {
-	// Note: the format of the hmap is also encoded in cmd/compile/internal/gc/reflect.go.
+	// Note: the format of the hmap is also encoded in cmd/compile/i/gc/reflect.go.
 	// Make sure this stays in sync with the compiler's definition.
 	count     int // # live cells == size of map.  Must be first (used by len() builtin)
 	flags     uint8
@@ -152,7 +152,7 @@ type bmap struct {
 }
 
 // A hash iteration structure.
-// If you modify hiter, also change cmd/compile/internal/gc/reflect.go to indicate
+// If you modify hiter, also change cmd/compile/i/gc/reflect.go to indicate
 // the layout of this structure.
 type hiter struct {
 	key         unsafe.Pointer // Must be in first position.  Write nil to indicate iteration end (see cmd/internal/gc/range.go).
@@ -742,7 +742,7 @@ func mapiterinit(t *maptype, h *hmap, it *hiter) {
 	}
 
 	if unsafe.Sizeof(hiter{})/sys.PtrSize != 12 {
-		throw("hash_iter size incorrect") // see cmd/compile/internal/gc/reflect.go
+		throw("hash_iter size incorrect") // see cmd/compile/i/gc/reflect.go
 	}
 	it.t = t
 	it.h = h
@@ -1304,5 +1304,5 @@ func reflect_ismapkey(t *_type) bool {
 	return ismapkey(t)
 }
 
-const maxZero = 1024 // must match value in cmd/compile/internal/gc/walk.go
+const maxZero = 1024 // must match value in cmd/compile/i/gc/walk.go
 var zeroVal [maxZero]byte

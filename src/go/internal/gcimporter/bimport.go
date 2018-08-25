@@ -129,7 +129,7 @@ func BImportData(fset *token.FileSet, imports map[string]*types.Package, data []
 	// read package data
 	pkg = p.pkg()
 
-	// read objects of phase 1 only (see cmd/compile/internal/gc/bexport.go)
+	// read objects of phase 1 only (see cmd/compile/i/gc/bexport.go)
 	objcount := 0
 	for {
 		tag := p.tagOrIndex()
@@ -252,7 +252,7 @@ func (p *importer) declare(obj types.Object) {
 		// functions whose inlined function bodies refer to other functions that
 		// were already imported.
 		// However, type aliases require reexporting the original type, so we need
-		// to allow it (see also the comment in cmd/compile/internal/gc/bimport.go,
+		// to allow it (see also the comment in cmd/compile/i/gc/bimport.go,
 		// method importer.obj, switch case importing functions).
 		// TODO(gri) review/update this comment once the gc compiler handles type aliases.
 		if !sameObj(obj, alt) {
@@ -299,7 +299,7 @@ func (p *importer) obj(tag int) {
 	}
 }
 
-const deltaNewFile = -64 // see cmd/compile/internal/gc/bexport.go
+const deltaNewFile = -64 // see cmd/compile/i/gc/bexport.go
 
 func (p *importer) pos() token.Pos {
 	if !p.posInfoFormat {
@@ -572,7 +572,7 @@ func (p *importer) typ(parent *types.Package, tname *types.Named) types.Type {
 }
 
 func chanDir(d int) types.ChanDir {
-	// tag values must match the constants in cmd/compile/internal/gc/go.go
+	// tag values must match the constants in cmd/compile/i/gc/go.go
 	switch d {
 	case 1 /* Crecv */ :
 		return types.RecvOnly

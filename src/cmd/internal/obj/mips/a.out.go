@@ -214,7 +214,7 @@ func init() {
 		}
 	}
 	f(REG_R0, REG_R31, 0)
-	f(REG_F0, REG_F31, 32) // For 32-bit MIPS, compiler only uses even numbered registers --  see cmd/compile/internal/ssa/gen/MIPSOps.go
+	f(REG_F0, REG_F31, 32) // For 32-bit MIPS, compiler only uses even numbered registers --  see cmd/compile/i/ssa/gen/MIPSOps.go
 	MIPSDWARFRegisters[REG_HI] = 64
 	MIPSDWARFRegisters[REG_LO] = 65
 }

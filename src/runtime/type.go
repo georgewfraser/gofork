@@ -11,7 +11,7 @@ import "unsafe"
 // tflag is documented in reflect/type.go.
 //
 // tflag values must be kept in sync with copies in:
-//	cmd/compile/internal/gc/reflect.go
+//	cmd/compile/i/gc/reflect.go
 //	cmd/link/internal/ld/decodesym.go
 //	reflect/type.go
 type tflag uint8
@@ -23,7 +23,7 @@ const (
 )
 
 // Needs to be in sync with ../cmd/link/internal/ld/decodesym.go:/^func.commonsize,
-// ../cmd/compile/internal/gc/reflect.go:/^func.dcommontype and
+// ../cmd/compile/i/gc/reflect.go:/^func.dcommontype and
 // ../reflect/type.go:/^type.rtype.
 type _type struct {
 	size       uintptr

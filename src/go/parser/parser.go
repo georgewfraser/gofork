@@ -1825,7 +1825,7 @@ func (p *parser) makeExpr(s ast.Stmt, want string) ast.Expr {
 }
 
 // parseIfHeader is an adjusted version of parser.header
-// in cmd/compile/internal/syntax/parser.go, which has
+// in cmd/compile/i/syntax/parser.go, which has
 // been tuned for better error handling.
 func (p *parser) parseIfHeader() (init ast.Stmt, cond ast.Expr) {
 	if p.tok == token.LBRACE {

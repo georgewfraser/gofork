@@ -25,7 +25,7 @@ little to do with uppercase "GC", which stands for garbage collection.
 
 ### 1. Parsing
 
-* `cmd/compile/internal/syntax` (lexer, parser, syntax tree)
+* `cmd/compile/i/syntax` (lexer, parser, syntax tree)
 
 In the first phase of compilation, source code is tokenized (lexical analysis),
 parsed (syntax analysis), and a syntax tree is constructed for each source
@@ -38,7 +38,7 @@ which is used for error reporting and the creation of debugging information.
 
 ### 2. Type-checking and AST transformations
 
-* `cmd/compile/internal/gc` (create compiler AST, type checking, AST transformations)
+* `cmd/compile/i/gc` (create compiler AST, type checking, AST transformations)
 
 The gc package includes an AST definition carried over from when it was written
 in C. All of its code is written in terms of it, so the first thing that the gc
@@ -58,8 +58,8 @@ inlining, and escape analysis.
 
 ### 3. Generic SSA
 
-* `cmd/compile/internal/gc` (converting to SSA)
-* `cmd/compile/internal/ssa` (SSA passes and rules)
+* `cmd/compile/i/gc` (converting to SSA)
+* `cmd/compile/i/ssa` (SSA passes and rules)
 
 
 In this phase, the AST is converted into Static Single Assignment (SSA) form, a
@@ -87,7 +87,7 @@ values, and optimizing multiplications and float operations.
 
 ### 4. Generating machine code
 
-* `cmd/compile/internal/ssa` (SSA lowering and arch-specific passes)
+* `cmd/compile/i/ssa` (SSA lowering and arch-specific passes)
 * `cmd/internal/obj` (machine code generation)
 
 The machine-dependent phase of the compiler begins with the "lower" pass, which
@@ -115,4 +115,4 @@ and debugging information.
 ### Further reading
 
 To dig deeper into how the SSA package works, including its passes and rules,
-head to [cmd/compile/internal/ssa/README.md](internal/ssa/README.md).
+head to [cmd/compile/i/ssa/README.md](internal/ssa/README.md).

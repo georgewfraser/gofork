@@ -37,19 +37,19 @@ var bootstrapDirs = []string{
 	"cmd/asm/internal/lex",
 	"cmd/cgo",
 	"cmd/compile",
-	"cmd/compile/internal/amd64",
-	"cmd/compile/internal/arm",
-	"cmd/compile/internal/arm64",
-	"cmd/compile/internal/gc",
-	"cmd/compile/internal/mips",
-	"cmd/compile/internal/mips64",
-	"cmd/compile/internal/ppc64",
-	"cmd/compile/internal/types",
-	"cmd/compile/internal/s390x",
-	"cmd/compile/internal/ssa",
-	"cmd/compile/internal/syntax",
-	"cmd/compile/internal/x86",
-	"cmd/compile/internal/wasm",
+	"cmd/compile/i/amd64",
+	"cmd/compile/i/arm",
+	"cmd/compile/i/arm64",
+	"cmd/compile/i/gc",
+	"cmd/compile/i/mips",
+	"cmd/compile/i/mips64",
+	"cmd/compile/i/ppc64",
+	"cmd/compile/i/types",
+	"cmd/compile/i/s390x",
+	"cmd/compile/i/ssa",
+	"cmd/compile/i/syntax",
+	"cmd/compile/i/x86",
+	"cmd/compile/i/wasm",
 	"cmd/internal/bio",
 	"cmd/internal/gcprog",
 	"cmd/internal/dwarf",
@@ -220,10 +220,10 @@ func bootstrapBuildTools() {
 	}
 }
 
-var ssaRewriteFileSubstring = filepath.FromSlash("src/cmd/compile/internal/ssa/rewrite")
+var ssaRewriteFileSubstring = filepath.FromSlash("src/cmd/compile/i/ssa/rewrite")
 
 // isUnneededSSARewriteFile reports whether srcFile is a
-// src/cmd/compile/internal/ssa/rewriteARCHNAME.go file for an
+// src/cmd/compile/i/ssa/rewriteARCHNAME.go file for an
 // architecture that isn't for the current runtime.GOARCH.
 //
 // When unneeded is true archCaps is the rewrite base filename without

@@ -249,7 +249,7 @@ func f9(a, b bool) int {
 
 func f10(a string) int {
 	n := len(a)
-	// We optimize comparisons with small constant strings (see cmd/compile/internal/gc/walk.go),
+	// We optimize comparisons with small constant strings (see cmd/compile/i/gc/walk.go),
 	// so this string literal must be long.
 	if a[:n>>1] == "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" {
 		return 0
